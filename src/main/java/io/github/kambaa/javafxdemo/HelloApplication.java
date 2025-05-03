@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
   public void start(Stage stage) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main.fxml"));
     Scene scene = new Scene(fxmlLoader.load());
-
+    stage.setResizable(false);
     // Get the controller instance and inject the stage
     MainController controller = fxmlLoader.getController();
     controller.setPrimaryStage(stage);
