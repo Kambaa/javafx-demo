@@ -35,6 +35,13 @@ public class MainController {
   private TextArea textArea;
 
   @FXML
+  private Button resetButton;
+
+  private File keytoolExecutable;
+  private File certFile;
+  private File cacertFile;
+
+  @FXML
   private void handleSelectJdkDirectory() {
     DirectoryChooser directoryChooser = new DirectoryChooser();
     directoryChooser.setTitle("Choose a directory");
@@ -71,6 +78,7 @@ public class MainController {
     }
 
     textArea.appendText(System.lineSeparator() + "✅ Detected keytool");
+    keytoolExecutable=keytoolExe;
 
     String jdkVersion = getJavaVersion(javaExe);
     if (jdkVersion == null) {
@@ -87,13 +95,14 @@ public class MainController {
       cacerts = new File(selectedDirectory, "lib/security/cacerts");
     }
 
-    if (cacerts.exists()) {
+    if (cacerts.exists() && cacerts.canWrite()) {
       textArea.appendText(System.lineSeparator() + "✅ All good! 'cacerts' found at: " + cacerts.getAbsolutePath());
       jdkDirButton.setDisable(true);
       jdkDirButton.setText("✅ " + jdkDirButton.getText());
+      cacertFile = cacerts;
       isReadyForOperation();
     } else {
-      textArea.appendText(System.lineSeparator() + "❌ 'cacerts' not found where expected: " + cacerts.getAbsolutePath());
+      textArea.appendText(System.lineSeparator() + "❌ 'cacerts' not found or writable: " + cacerts.getAbsolutePath());
     }
 
   }
@@ -119,15 +128,33 @@ public class MainController {
     return null != file && file.isDirectory();
   }
 
-  @FXML
-  private void handleCertSaveToTrustStore() {
-
-  }
 
   private void isReadyForOperation() {
     if (jdkDirButton.isDisabled() && certFileSelectButton.isDisabled()) {
       doOperationButton.setVisible(true);
       storePasswordField.setVisible(true);
     }
+    resetButton.setVisible(true);
+  }
+
+  @FXML
+  private void handleReset(){
+    cacertFile=null;
+    certFile=null;
+    textArea.setText("");
+    keytoolExecutable=null;
+    doOperationButton.setVisible(false);
+    storePasswordField.setVisible(false);
+    certFileSelectButton.setText(certFileSelectButton.getText().replace("✅ ",""));
+    certFileSelectButton.setDisable(false);
+    jdkDirButton.setText(jdkDirButton.getText().replace("✅ ",""));
+    jdkDirButton.setDisable(false);
+    resetButton.setVisible(false);
+  }
+
+
+  @FXML
+  private void handleCertSaveToTrustStore() {
+
   }
 }

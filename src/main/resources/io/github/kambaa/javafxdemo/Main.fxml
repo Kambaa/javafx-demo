@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.kambaa.javafxdemo.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.kambaa.javafxdemo.MainController">
     <children>
         <Button fx:id="jdkDirButton" layoutX="5.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSelectJdkDirectory" text="Select JDK Dir" />
         <TextArea fx:id="textArea" editable="false" layoutX="2.0" layoutY="87.0" prefHeight="200.0" prefWidth="394.0" wrapText="true" />
@@ -15,6 +15,8 @@
       <PasswordField fx:id="storePasswordField" layoutX="131.0" layoutY="53.0" prefHeight="25.0" prefWidth="242.0" promptText="Trust store password (default: changeit)" visible="false">
          <tooltip>
             <Tooltip text="Leave Empty To Use Default" />
-         </tooltip></PasswordField>
+         </tooltip>
+      </PasswordField>
+      <Button fx:id="resetButton" layoutX="335.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" visible="false" />
     </children>
 </AnchorPane>
