@@ -39,3 +39,22 @@ After that, check and run `/target/JDK8+ CertImporter/JDK8+ CertImporter.exe` (o
 ### Todo: 
 generate portable, single-file running apps for linux: 
 https://www.booleanworld.com/creating-linux-apps-run-anywhere-appimage/
+
+2️⃣ Linux: Using a Shell Script + Self-Extracting Archive
+For Linux, the best way to create a self-extracting script is using makeself:
+
+Install makeself:
+
+```
+sudo apt install makeself
+```
+Create the archive with an embedded execution command:
+
+```
+makeself --nox11 target/app JDKCertImporter.run "JavaFX Cert Importer" ./bin/JDKCertImporter
+```
+Now, run it like a native executable:
+
+```
+./JDKCertImporter.run
+```
