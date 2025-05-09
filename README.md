@@ -24,9 +24,12 @@ Windows:
 jpackage  --dest target/ --runtime-image target/app --name "JDK8+ CertImporter" --module io.github.kambaa.javafxdemo/io.github.kambaa.javafxdemo.JavaFxApplication --type app-image --icon src/main/resources/app.ico 
 ```
 
+add `--win-console` to the jpackage to display command line when running (to debug)
+
+
 Linux: 
 ```
  jpackage --dest target --runtime-image target/app --name "JDK8+ CertImporter" --module io.github.kambaa.javafxdemo/io.github.kambaa.javafxdemo.JavaFxApplication --type app-image --icon src/main/resources/icon.png
 ```
 
-add `--win-console` to the jpackage to display command line when running (to debug)
+After that, check and run `/target/JDK8+ CertImporter/JDK8+ CertImporter.exe` (on Win) or `/target/JDK8+ CertImporter/bin/JDK8+ CertImporter` (On Linux) executables.
