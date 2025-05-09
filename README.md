@@ -1,5 +1,7 @@
 # JDK 8+ Certificate Importer JavaFx Application
 
+![ss.png](ss.png)
+
 In enterprise company environments, you'll need to add the necessary certificates to the JDKs for connections to work.
 Rather than remembering the `keytool` command, i've decided to write this mini JavaFx application to quickly add the certs to the truststore.
 
