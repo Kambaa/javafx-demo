@@ -13,14 +13,20 @@ This was a nice JavaFx learning experience for me.
 
 ## Build Steps
 
-Project needs JDK 21.
+Project(especially JavaFx) needs JDK 21.
 
 ```
 ./mvnw clean javafx:jlink
 ```
 
+Windows:
 ```
 jpackage  --dest target/ --runtime-image target/app --name "JDK8+ CertImporter" --module io.github.kambaa.javafxdemo/io.github.kambaa.javafxdemo.JavaFxApplication --type app-image --icon src/main/resources/app.ico 
+```
+
+Linux: 
+```
+ jpackage --dest target --runtime-image target/app --name "JDK8+ CertImporter" --module io.github.kambaa.javafxdemo/io.github.kambaa.javafxdemo.JavaFxApplication --type app-image --icon src/main/resources/icon.png
 ```
 
 add `--win-console` to the jpackage to display command line when running (to debug)
