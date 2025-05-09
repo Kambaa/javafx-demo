@@ -33,3 +33,9 @@ Linux:
 ```
 
 After that, check and run `/target/JDK8+ CertImporter/JDK8+ CertImporter.exe` (on Win) or `/target/JDK8+ CertImporter/bin/JDK8+ CertImporter` (On Linux) executables.
+
+
+
+### Todo: 
+generate portable, single-file running apps for linux: 
+https://www.booleanworld.com/creating-linux-apps-run-anywhere-appimage/
