@@ -36,7 +36,6 @@ jobs:
         
     - name: Build with Maven
       run: mvn -B clean javafx:jlink --file pom.xml
-      
     - name: Package with jpackage
       run: |
            jpackage \
@@ -46,12 +45,14 @@ jobs:
            --module io.github.kambaa.javafxdemo/io.github.kambaa.javafxdemo.JavaFxApplication \
            --type app-image \
            --icon src/main/resources/icon.png
-           
     - name: Zip packaged app
       run: |
           cd target
           zip -r "JDK8+ CertImporter.zip" "JDK8+ CertImporter"
-          
+    - name: List Generated Application Datas
+      run: |
+          cd target
+          ls -la
     - name: Upload release asset
       uses: softprops/action-gh-release@v2
       with:
