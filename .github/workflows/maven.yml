@@ -6,13 +6,19 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+# name: Java CI with Maven
+
+# on:
+#   push:
+#     branches: [ "master" ]
+#   pull_request:
+#     branches: [ "master" ]
+name: Build and Release
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    tags:
+      - 'v*'  # Trigger on version tags like v1.0.0
 
 jobs:
   build:
